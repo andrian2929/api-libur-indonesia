@@ -118,15 +118,17 @@ app.get('/holiday/:year/:month', async (req, res) => {
 });
 
 const fetchPublicHolidays = async (year) => {
+  const HOLIDAYS_URL = `https://publicholidays.co.id/id/${year}-dates/`;
+
   const options = {
-    uri: `https://publicholidays.co.id/id/${year}-dates/`,
+    url: HOLIDAYS_URL,
     headers: {
       'User-Agent':
         'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.100 Safari/537.36',
     },
   };
 
-  const html = await request(options);
+  const html = await request.get(options);
   return cheerio.load(html);
 };
 
