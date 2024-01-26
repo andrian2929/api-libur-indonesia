@@ -2,6 +2,7 @@ const request = require('request-promise');
 const cheerio = require('cheerio');
 const moment = require('moment');
 const express = require('express');
+const e = require('express');
 
 require('moment/locale/id');
 
@@ -35,9 +36,7 @@ app.get('/holiday/:year', async (req, res) => {
         .status(404)
         .json({ success: false, message: 'Data not found' });
 
-    return res
-      .status(500)
-      .json({ success: false, message: 'Internal server error' });
+    return res.status(500).json({ success: false, message: error.message });
   }
 });
 
