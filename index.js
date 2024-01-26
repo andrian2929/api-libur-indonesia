@@ -2,7 +2,6 @@ const request = require('request-promise');
 const cheerio = require('cheerio');
 const moment = require('moment');
 const express = require('express');
-const e = require('express');
 
 require('moment/locale/id');
 
@@ -119,9 +118,15 @@ app.get('/holiday/:year/:month', async (req, res) => {
 });
 
 const fetchPublicHolidays = async (year) => {
-  const HOLIDAYS_URL = `https://publicholidays.co.id/id/${year}-dates/`;
+  const options = {
+    uri: `https://publicholidays.co.id/id/${year}-dates/`,
+    headers: {
+      'User-Agent':
+        'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.100 Safari/537.36',
+    },
+  };
 
-  const html = await request.get(HOLIDAYS_URL);
+  const html = await request(options);
   return cheerio.load(html);
 };
 
