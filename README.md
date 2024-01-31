@@ -1,4 +1,4 @@
-## API Hari Libur Idonesia
+# API Hari Libur Indonesia
 
 Beberapa fitur dalam API ini adalah
 - Data hari libur berdasarkan tahun
