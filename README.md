@@ -5,7 +5,7 @@ Beberapa fitur dalam API ini adalah
 - Data hari libur berdasarkan tahun dan bulan
 - Cek apakah tanggal merupakan hari libur atau tidak
 
-### `GET /holiday/2024`
+### `GET /holiday/2023`
 Mendapatkan data hari libur berdasarkan `tahun` pada parameter
   ```json
   {
@@ -30,7 +30,7 @@ Mendapatkan data hari libur berdasarkan `tahun` pada parameter
 
 <br>
  
-### `GET /holiday/2024/01`
+### `GET /holiday/2023/01`
 Mendapatkan data hari libur berdasarkan `tahun`  dan `bulan`
   ```json
   {
